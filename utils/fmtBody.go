@@ -14,3 +14,8 @@ func FmtBody[T any](Body io.ReadCloser) (err error, resStruct T) {
 	json.Unmarshal(b, &resStruct)
 	return err, resStruct
 }
+
+func FmtStrToStruct[T any](Body string) (err error, resStruct T) {
+	err = json.Unmarshal([]byte(Body), &resStruct)
+	return err, resStruct
+}
